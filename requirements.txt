@@ -1,0 +1,10 @@
+asyncpg==0.29.0
+aiofiles==24.1.0
+dependency-injector==4.43.0
+fastapi==0.115.0
+orjson==3.10.15
+elasticsearch[async]==7.10.1
+redis==5.0.4
+pydantic-settings==2.5.2
+spacy==3.7.4
+uvicorn==0.34.0

@@ -1,0 +1,13 @@
+{
+  "labels":[
+    "director_info",
+    "film_description",
+    "writer_info",
+    "director_movies",
+    "actor_movies",
+    "actor_info",
+    "film_rating"
+  ],
+  "threshold":0.5,
+  "positive_label":null
+}
