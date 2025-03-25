@@ -31,7 +31,7 @@ jobs:
           pip install -r ./assistant/tests/funct/requirements.txt
 
       - name: Тестирования на flake8
-        run: python -m flake8 assistant/
+        run: python -m flake8 assistant/ --verbose
 
       - name: Копировать .env_example в .env
         run: cp deploy/.env_example deploy/.env
