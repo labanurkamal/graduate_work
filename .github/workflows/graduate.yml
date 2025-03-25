@@ -50,12 +50,7 @@ jobs:
           while ! curl -fsSL "http://localhost:9200/_cluster/health?wait_for_status=yellow&timeout=5s"; do
             sleep 10
           done
-          
-          echo "Ждем готовности Redis..."
-          until docker exec redis redis-cli -a "$REDIS_PASSWORD" PING | grep -q PONG; do
-            sleep 5
-          done
-          
+           
           echo "Ждем готовности приложения..."
           until curl -s http://localhost:8000/api/v1/healthcheck | grep -q "ok"; do
             sleep 10
