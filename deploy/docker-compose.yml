@@ -77,8 +77,7 @@ services:
       - ./nginx/certbot-etc:/etc/letsencrypt
       - ./nginx/certbot-www:/var/www/certbot
     depends_on:
-      assistant_app:
-        condition: service_healthy
+      - assistant_app
     ports:
       - "80:80"
       - "443:443"
