@@ -34,7 +34,7 @@ jobs:
         run: python -m flake8 assistant/ --verbose
 
       - name: Копировать .env.example в .env
-        run: cp $GITHUB_WORKSPACE/deploy/.env_example $GITHUB_WORKSPACE/deploy/.env
+        run: cp $GITHUB_WORKSPACE/deploy/.env.example $GITHUB_WORKSPACE/deploy/.env
 
       - name: Запуск docker-compose
         run: docker compose -f deploy/docker-compose.yml up --build -d --remove-orphans --wait
