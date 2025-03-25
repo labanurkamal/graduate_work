@@ -47,7 +47,7 @@ jobs:
           done
           
           echo "Ждем готовности Elasticsearch..."
-          while ! curl -fsSL "http://localhost:9200/_cluster/health?wait_for_status=yellow&timeout=5s" || true; do
+          while ! curl -fsSL "http://localhost:9200/_cluster/health?wait_for_status=yellow&timeout=5s"; do
             sleep 10
           done
           
