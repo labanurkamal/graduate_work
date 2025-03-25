@@ -1,23 +1,23 @@
 {
-  "lang":"ru",
-  "name":"pipeline",
-  "version":"0.0.0",
-  "spacy_version":">=3.7.4,<3.8.0",
-  "description":"",
-  "author":"",
-  "email":"",
-  "url":"",
-  "license":"",
-  "spacy_git_version":"bff8725f4",
-  "vectors":{
-    "width":0,
-    "vectors":0,
-    "keys":0,
-    "name":null,
-    "mode":"default"
+  "lang": "ru",
+  "name": "pipeline",
+  "version": "0.0.0",
+  "spacy_version": ">=3.7.4,<3.8.0",
+  "description": "",
+  "author": "",
+  "email": "",
+  "url": "",
+  "license": "",
+  "spacy_git_version": "bff8725f4",
+  "vectors": {
+    "width": 0,
+    "vectors": 0,
+    "keys": 0,
+    "name": null,
+    "mode": "default"
   },
-  "labels":{
-    "textcat":[
+  "labels": {
+    "textcat": [
       "director_info",
       "film_description",
       "writer_info",
@@ -27,62 +27,61 @@
       "film_rating"
     ]
   },
-  "pipeline":[
+  "pipeline": [
     "textcat"
   ],
-  "components":[
+  "components": [
     "textcat"
   ],
-  "disabled":[
-
+  "disabled": [
   ],
-  "performance":{
-    "cats_score":1.0,
-    "cats_score_desc":"macro F",
-    "cats_micro_p":1.0,
-    "cats_micro_r":1.0,
-    "cats_micro_f":1.0,
-    "cats_macro_p":1.0,
-    "cats_macro_r":1.0,
-    "cats_macro_f":1.0,
-    "cats_macro_auc":1.0,
-    "cats_f_per_type":{
-      "director_info":{
-        "p":1.0,
-        "r":1.0,
-        "f":1.0
+  "performance": {
+    "cats_score": 1.0,
+    "cats_score_desc": "macro F",
+    "cats_micro_p": 1.0,
+    "cats_micro_r": 1.0,
+    "cats_micro_f": 1.0,
+    "cats_macro_p": 1.0,
+    "cats_macro_r": 1.0,
+    "cats_macro_f": 1.0,
+    "cats_macro_auc": 1.0,
+    "cats_f_per_type": {
+      "director_info": {
+        "p": 1.0,
+        "r": 1.0,
+        "f": 1.0
       },
-      "film_description":{
-        "p":1.0,
-        "r":1.0,
-        "f":1.0
+      "film_description": {
+        "p": 1.0,
+        "r": 1.0,
+        "f": 1.0
       },
-      "writer_info":{
-        "p":1.0,
-        "r":1.0,
-        "f":1.0
+      "writer_info": {
+        "p": 1.0,
+        "r": 1.0,
+        "f": 1.0
       },
-      "director_movies":{
-        "p":1.0,
-        "r":1.0,
-        "f":1.0
+      "director_movies": {
+        "p": 1.0,
+        "r": 1.0,
+        "f": 1.0
       },
-      "actor_movies":{
-        "p":1.0,
-        "r":1.0,
-        "f":1.0
+      "actor_movies": {
+        "p": 1.0,
+        "r": 1.0,
+        "f": 1.0
       },
-      "actor_info":{
-        "p":1.0,
-        "r":1.0,
-        "f":1.0
+      "actor_info": {
+        "p": 1.0,
+        "r": 1.0,
+        "f": 1.0
       },
-      "film_rating":{
-        "p":1.0,
-        "r":1.0,
-        "f":1.0
+      "film_rating": {
+        "p": 1.0,
+        "r": 1.0,
+        "f": 1.0
       }
     },
-    "textcat_loss":0.0000000818
+    "textcat_loss": 0.0000000818
   }
 }

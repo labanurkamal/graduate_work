@@ -4,12 +4,12 @@ from redis.asyncio import Redis
 
 from core.config import Settings
 from dependencies.register import RepositoryFactory
+from services.assistant import AssistantService, IntentNERModel
 from services.cache import RedisCacheRepository
 from services.film import FilmService
 from services.genre import GenreService
 from services.person import PersonService
 from services.storage import ElasticStorageRepository
-from services.assistant import IntentNERModel, AssistantService
 
 
 class CoreContainer(containers.DeclarativeContainer):

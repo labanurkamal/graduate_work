@@ -5,7 +5,7 @@ from datetime import datetime
 import aiofiles
 import asyncpg
 
-from core.config import settings, SQL_FILE_ROOT
+from core.config import SQL_FILE_ROOT, settings
 from models.models import Film, Genre, Person, PersonFilm
 
 

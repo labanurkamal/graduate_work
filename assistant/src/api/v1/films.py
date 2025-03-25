@@ -27,13 +27,13 @@ router = APIRouter()
 )
 @inject
 async def get_popular_or_by_genre_films(
-    film_service: FilmService = Depends(Provide[ServiceContainer.film_service]),
-    genre: Optional[str] = Query(None, description="ID жанра для фильтрации фильмов"),
-    sort: Optional[Literal["-imdb_rating", "imdb_rating"]] = Query(
-        "-imdb_rating",
-        description="Поле для сортировки фильмов. Используйте '-' для обратного порядка.",
-    ),
-    pg: PaginationParams = Depends(PaginationParams),
+        film_service: FilmService = Depends(Provide[ServiceContainer.film_service]),
+        genre: Optional[str] = Query(None, description="ID жанра для фильтрации фильмов"),
+        sort: Optional[Literal["-imdb_rating", "imdb_rating"]] = Query(
+            "-imdb_rating",
+            description="Поле для сортировки фильмов. Используйте '-' для обратного порядка.",
+        ),
+        pg: PaginationParams = Depends(PaginationParams),
 ) -> list[ShortFilm]:
     query = {
         "query": {
@@ -68,9 +68,9 @@ async def get_popular_or_by_genre_films(
 )
 @inject
 async def get_film_search(
-    film_service: FilmService = Depends(Provide[ServiceContainer.film_service]),
-    query: str = Query(..., description="Поисковый запрос для фильмов"),
-    pg: PaginationParams = Depends(PaginationParams),
+        film_service: FilmService = Depends(Provide[ServiceContainer.film_service]),
+        query: str = Query(..., description="Поисковый запрос для фильмов"),
+        pg: PaginationParams = Depends(PaginationParams),
 ) -> list[ShortFilm]:
     search_query = {
         "query": {"multi_match": {"query": query, "fields": ["title", "description"]}},
@@ -97,8 +97,8 @@ async def get_film_search(
 )
 @inject
 async def get_film_details(
-    film_id: str,
-    film_service: FilmService = Depends(Provide[ServiceContainer.film_service]),
+        film_id: str,
+        film_service: FilmService = Depends(Provide[ServiceContainer.film_service]),
 ) -> Film:
     film = await film_service.get_by_id(film_id)
     validators.http_exception(film, HTTPStatus.NOT_FOUND, "Фильм не найден.")

@@ -22,9 +22,9 @@ router = APIRouter()
 )
 @inject
 async def get_person_search(
-    person_service: PersonService = Depends(Provide[ServiceContainer.person_service]),
-    query: Optional[str] = Query(..., description="Имя персонажа для поиска."),
-    pg: PaginationParams = Depends(PaginationParams),
+        person_service: PersonService = Depends(Provide[ServiceContainer.person_service]),
+        query: Optional[str] = Query(..., description="Имя персонажа для поиска."),
+        pg: PaginationParams = Depends(PaginationParams),
 ) -> list[PersonFilm]:
     search_query = {
         "query": {
@@ -54,8 +54,8 @@ async def get_person_search(
 )
 @inject
 async def get_person_details(
-    person_id: str,
-    person_service: PersonService = Depends(Provide[ServiceContainer.person_service]),
+        person_id: str,
+        person_service: PersonService = Depends(Provide[ServiceContainer.person_service]),
 ) -> PersonFilm:
     person = await person_service.get_by_id(person_id)
     validators.http_exception(person, HTTPStatus.NOT_FOUND, "Персонаж не найден.")
@@ -71,8 +71,8 @@ async def get_person_details(
 )
 @inject
 async def get_person_film(
-    person_id: str,
-    person_service: PersonService = Depends(Provide[ServiceContainer.person_service]),
+        person_id: str,
+        person_service: PersonService = Depends(Provide[ServiceContainer.person_service]),
 ) -> list[ShortFilm]:
     person_films = await person_service.get_by_id(person_id)
     validators.http_exception(

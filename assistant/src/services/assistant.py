@@ -2,10 +2,11 @@ import logging
 from typing import Any, Union
 
 import spacy
-from schemas.assistant_schema import IntentFields, EntityType, IntentHandlers
+
+from core.config import ENTITY_MODEL_PATH, INTENT_MODEL_PATH
+from schemas.assistant_schema import EntityType, IntentFields, IntentHandlers
 from services.film import FilmService
 from services.person import PersonService
-from core.config import INTENT_MODEL_PATH, ENTITY_MODEL_PATH
 
 
 class IntentNERModel:
@@ -34,10 +35,10 @@ class AssistantService:
     """Сервис обработки запросов пользователя и формирования ответов."""
 
     def __init__(
-        self,
-        film_service: FilmService,
-        person_service: PersonService,
-        intent_ner_model: IntentNERModel,
+            self,
+            film_service: FilmService,
+            person_service: PersonService,
+            intent_ner_model: IntentNERModel,
     ) -> None:
         """Инициализирует сервис с доступом к данным о фильмах и персонажах."""
         self.film_service = film_service
@@ -53,11 +54,11 @@ class AssistantService:
         return response
 
     async def get_response(
-        self,
-        entity_name: str,
-        entity_type: EntityType,
-        es_query: dict[str, Any],
-        intent: str,
+            self,
+            entity_name: str,
+            entity_type: EntityType,
+            es_query: dict[str, Any],
+            intent: str,
     ) -> str:
         """Формирует ответ на основе результатов поиска и шаблона намерения."""
         service = await self.define_service(entity_type)

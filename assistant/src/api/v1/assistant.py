@@ -1,16 +1,11 @@
 from dependency_injector.wiring import Provide, inject
-
-from dependencies.container import ServiceContainer
-
 from fastapi import APIRouter, Depends
-from schemas.assistant_schema import (
-    AssistantYandexRequest,
-    AssistantYandexResponse,
-    Card,
-    Response,
-)
-from services.assistant import AssistantService
+
 from core.config import assistant_settings
+from dependencies.container import ServiceContainer
+from schemas.assistant_schema import (AssistantYandexRequest,
+                                      AssistantYandexResponse, Card, Response)
+from services.assistant import AssistantService
 
 router = APIRouter()
 
@@ -20,17 +15,17 @@ router = APIRouter()
     response_model=AssistantYandexResponse,
     summary="Обработка запроса Яндекс.Алисы",
     description=(
-        "Этот эндпоинт принимает запрос от Яндекс.Алисы, анализирует введенный пользователем текст "
-        "и формирует ответ в зависимости от контекста. Если сессия новая, отправляется приветственное "
-        "сообщение с карточкой, иначе запрос обрабатывается и возвращается соответствующий ответ."
+            "Этот эндпоинт принимает запрос от Яндекс.Алисы, анализирует введенный пользователем текст "
+            "и формирует ответ в зависимости от контекста. Если сессия новая, отправляется приветственное "
+            "сообщение с карточкой, иначе запрос обрабатывается и возвращается соответствующий ответ."
     ),
 )
 @inject
 async def alice_assistant(
-    request: AssistantYandexRequest,
-    assistant_service: AssistantService = Depends(
-        Provide[ServiceContainer.assistant_service]
-    ),
+        request: AssistantYandexRequest,
+        assistant_service: AssistantService = Depends(
+            Provide[ServiceContainer.assistant_service]
+        ),
 ) -> AssistantYandexResponse:
     text = request.request.get("original_utterance", None)
 

@@ -33,7 +33,7 @@ class BaseRepository(BaseInterface, Generic[ModelType]):
     """Базовая реализация репозитория для работы с данными."""
 
     def __init__(
-        self, cache: CacheInterface, storage: StorageInterface, model: Type[ModelType]
+            self, cache: CacheInterface, storage: StorageInterface, model: Type[ModelType]
     ):
         self.cache = cache
         self.storage = storage
@@ -61,7 +61,7 @@ class BaseRepository(BaseInterface, Generic[ModelType]):
         return model_instance
 
     async def get_by_search(
-        self, index_name: str, body: dict[str, Any] = None
+            self, index_name: str, body: dict[str, Any] = None
     ) -> Optional[list[ModelType]]:
         """Выполняет поиск объектов по запросу в кэше или хранилище."""
         cache_key = self._get_cache_key_for_query(index_name, body)

@@ -20,7 +20,7 @@ router = APIRouter()
 )
 @inject
 async def get_genre_list(
-    genre_service: GenreService = Depends(Provide[ServiceContainer.genre_service]),
+        genre_service: GenreService = Depends(Provide[ServiceContainer.genre_service]),
 ):
     query = {"size": 10_000}
     genre_list = await genre_service.get_by_search(query)
@@ -37,8 +37,8 @@ async def get_genre_list(
 )
 @inject
 async def get_genre_details(
-    genre_id: str,
-    genre_service: GenreService = Depends(Provide[ServiceContainer.genre_service]),
+        genre_id: str,
+        genre_service: GenreService = Depends(Provide[ServiceContainer.genre_service]),
 ):
     genre = await genre_service.get_by_id(genre_id)
     validators.http_exception(genre, HTTPStatus.NOT_FOUND, "Жанр не найден.")
