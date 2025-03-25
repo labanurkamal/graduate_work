@@ -52,7 +52,7 @@ jobs:
           done
           
           echo "Ждем готовности Redis..."
-          until docker exec redis redis-cli -a $REDIS_PASSWORD PING | grep -q PONG; do
+          until docker exec redis redis-cli -a "$REDIS_PASSWORD" PING | grep -q PONG; do
             sleep 5
           done
           
