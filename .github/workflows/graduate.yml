@@ -57,4 +57,4 @@ jobs:
           done
           
       - name: Тестирования приложение Ассистент
-        run: pytest -v tests/funct/src
+        run: pytest -v $GITHUB_WORKSPACE/assistant/tests/funct/src
