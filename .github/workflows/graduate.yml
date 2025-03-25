@@ -57,5 +57,5 @@ jobs:
           done
           
       - name: Тестирования приложение Ассистент
-        run: PYTHONPATH=$GITHUB_WORKSPACE/assistant/tests/funct python -m pytest -v $GITHUB_WORKSPACE/assistant/tests/funct/src
+        run: PYTHONPATH=$GITHUB_WORKSPACE/assistant/tests/funct python -m pytest -v src
 
