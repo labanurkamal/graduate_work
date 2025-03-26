@@ -3,7 +3,7 @@ from http import HTTPStatus
 
 import pytest
 
-from funct.settings import test_settings
+from tests.funct.settings import test_settings
 
 GENRE_ROOT_PATH = f"{test_settings.service_settings.get_api_v1()}/genres"
 INDEX = "genres"

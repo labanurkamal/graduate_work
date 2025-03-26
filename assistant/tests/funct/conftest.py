@@ -5,12 +5,12 @@ import pytest_asyncio
 from elasticsearch import AsyncElasticsearch
 from elasticsearch.helpers import async_bulk
 
-from funct.settings import test_settings
+from tests.funct.settings import test_settings
 
 pytest_plugins = (
-    "funct.fixtures.film_fixtures",
-    "funct.fixtures.genre_fixtures",
-    "funct.fixtures.person_fixtures",
+    "tests.funct.fixtures.film_fixtures",
+    "tests.funct.fixtures.genre_fixtures",
+    "tests.funct.fixtures.person_fixtures",
 )
 
 
@@ -31,9 +31,8 @@ def event_loop():
 async def client_session():
     """Создает сессию aiohttp для HTTP-запросов."""
     timeout = aiohttp.ClientTimeout(total=5)
-    client_session = aiohttp.ClientSession(timeout=timeout)
-    yield client_session
-    await client_session.close()
+    async with aiohttp.ClientSession(timeout=timeout) as session:
+        yield session
 
 
 @pytest_asyncio.fixture(name="es_client", scope="session")

@@ -3,7 +3,7 @@ from http import HTTPStatus
 
 import pytest
 
-from funct.settings import test_settings
+from tests.funct.settings import test_settings
 
 PERSON_PATH_ROOT = f"{test_settings.service_settings.get_api_v1()}/persons"
 INDEX = "persons"
