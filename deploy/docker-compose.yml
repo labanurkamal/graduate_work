@@ -48,10 +48,7 @@ services:
       - redis-volume:/data
 
   assistant_app:
-#    image: labamoon/assistant_backend
-    build:
-      context: ..
-      dockerfile: deploy/graduate_service/Dockerfile
+    image: labamoon/assistant_backend
     container_name: assistant_app
     ports:
     - "8000:8000"
