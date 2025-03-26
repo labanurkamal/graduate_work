@@ -52,9 +52,9 @@ jobs:
           done
            
           echo "Ждем готовности приложения..."
-          until curl -f "http://localhost:8000/api/v1/healthcheck/"; do
+          until curl -f "http://localhost:8000/api/v1/healthcheck"; do
             sleep 10
           done
           
       - name: Тестирования приложение Ассистент
-        run: pytest tests/funct
+        run: pytest -v $GITHUB_WORKSPACE/assistant/tests/funct/src
