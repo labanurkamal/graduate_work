@@ -115,6 +115,5 @@ jobs:
           scripts: |
             cd graduate_work/deploy
             sudo docker system prune -af
-            sudo docker-compose pull
             sudo docker-compose down
             sudo docker-compose up --build -d
