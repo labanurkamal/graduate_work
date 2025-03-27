@@ -107,7 +107,9 @@ class AssistantService:
                     "query": query,
                     "fields": fields_map.get(entity_type, []),
                 }
-            }
+            },
+            "sort": [{"_score": {"order": "desc"}}],
+            "size": 1
         }
 
     async def process_request(self, text: str) -> str:
